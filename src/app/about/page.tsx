@@ -30,6 +30,12 @@ const leadership: TeamMember[] = [
     role: "Vice President",
   },
   {
+    name: "Fred Rajasekaran",
+    role: "Financial Officer",
+    image: "/team/Fred.jpg",
+    website: "https://sites.google.com/view/fredraj/"
+  },
+  {
     name: "Sophia",
     role: "External Relations & Financial Officer",
   },
