@@ -21,5 +21,3 @@ Lean is a functional programming language and theorem prover. It allows us to wr
 ## Get Involved
 
 We host weekly meetings, workshops, and hackathons. Whether you're a seasoned Lean user or just curious about the future of math, we'd love to have you join us!
-
-Check out our [GitHub repository](https://github.com/stanford-ai-lean) for more resources.
