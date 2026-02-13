@@ -22,7 +22,7 @@ export default function Footer() {
             <Github className="w-5 h-5" />
             <span className="sr-only">GitHub</span>
           </Link>
-          <Link href="https://twitter.com/stanfordailean" target="_blank" rel="noopener noreferrer" className="hover:text-stone-900 transition-colors">
+          <Link href="https://x.com/StanfordLeanAIStanford" target="_blank" rel="noopener noreferrer" className="hover:text-stone-900 transition-colors">
             <XIcon className="w-5 h-5" />
             <span className="sr-only">X (formerly Twitter)</span>
           </Link>
