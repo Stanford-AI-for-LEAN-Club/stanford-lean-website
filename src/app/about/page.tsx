@@ -26,8 +26,12 @@ const leadership: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
   },
   {
-    name: "Shurei Liu",
+    name: "Shurui Liu",
     role: "Vice President",
+    image: "/team/Shurui.jpg",
+    website: "https://shurui.people.stanford.edu/",
+    github: "https://github.com/srliu3264",
+    linkedin: "https://www.linkedin.com/in/shurui-liu-5161042a3/"
   },
   {
     name: "Fred Rajasekaran",
