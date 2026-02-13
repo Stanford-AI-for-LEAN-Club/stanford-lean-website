@@ -21,7 +21,7 @@ const leadership: TeamMember[] = [
   {
     name: "Brando Miranda",
     role: "President",
-    image: "/team/brando.png",
+    image: "/team/Brando.png",
     github: "https://brando90.github.io/brandomiranda/",
     linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
   },
