@@ -56,6 +56,11 @@ const leadership: TeamMember[] = [
     linkedin: "https://linkedin.com",
   },
   {
+    name: "Henry Bosch",
+    role: "Leadership",
+    website: "https://henrybosch.github.io/"
+  },
+  {
     name: "Jianfeng Xue",
     role: "Media",
     github: "https://github.com",
