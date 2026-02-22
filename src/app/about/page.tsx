@@ -72,6 +72,12 @@ const leadership: TeamMember[] = [
     github: "https://github.com",
     linkedin: "https://linkedin.com",
   },
+  {
+    name: "Don Poindexter",
+    role: "Leadership",
+    image: "/team/Don_Poindexter.jpg",
+    github: "https://github.com/patternscientist",
+  },
 ];
 
 const container = {
