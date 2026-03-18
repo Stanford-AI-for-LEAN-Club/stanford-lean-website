@@ -21,7 +21,11 @@ Blog posts are written through an **experiments → posts** pipeline:
          transcript_summary_notes.txt    # curated technical notes for drafting — tracked
    ```
 2. **Draft** in `drafts/` using transcripts, prompts, and figures as inputs.
-3. **Publish** by copying the final `.md` into `posts/` with proper YAML frontmatter (`title`, `date`, `description`).
+3. **Review** via PR — assign relevant club members to approve before publishing.
+4. **Publish** by copying the final `.md` into `posts/` with proper YAML frontmatter (`title`, `date`, `description`).
+5. **Promote** once the post is live:
+   - **Twitter (required):** post a thread or short announcement linking to the blog post — [@StanfordLeanAI](https://x.com/StanfordLeanAI).
+   - **YouTube (optional):** if the session was recorded as a video, upload it and link it from the blog post.
 
 **Numbering:** experiments are prefixed `00_`, `01_`, `02_`, ... in creation order.
 

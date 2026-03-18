@@ -63,7 +63,7 @@ experiments/NN_<slug>/
     transcript_summary_notes.txt     # tracked — curated technical notes for drafting
 ```
 
-When a post is ready, copy `drafts/final.md` → `posts/<slug>.md` with frontmatter (`title`, `date`, `description`).
+Steps: draft → PR review → copy `drafts/final.md` → `posts/<slug>.md` with frontmatter (`title`, `date`, `description`) → Twitter post (required) → YouTube link (optional, if session was recorded).
 
 **Numbering:** `00_`, `01_`, `02_` ... in creation order under `experiments/`.
 
