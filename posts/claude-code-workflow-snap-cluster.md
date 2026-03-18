@@ -176,45 +176,6 @@ Join the Discord for updates on credits and future sessions.
 
 ---
 
-## Bonus: @claude in GitHub PRs and Issues
-
-One more trick we set up for this repo: you can mention `@claude` directly in any GitHub PR comment or issue and it will respond automatically.
-
-It uses Anthropic's official [`claude-code-action`](https://github.com/anthropics/claude-code-action), set up as a GitHub Actions workflow:
-
-```yaml
-# .github/workflows/claude.yml
-name: Claude Code Assistant
-
-on:
-  issue_comment:
-    types: [created]
-  pull_request_review_comment:
-    types: [created]
-  issues:
-    types: [opened, assigned]
-  pull_request_review:
-    types: [submitted]
-
-jobs:
-  claude:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: anthropics/claude-code-action@v1
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          trigger_phrase: "@claude"
-```
-
-Setup:
-1. Add your `ANTHROPIC_API_KEY` to the repo's GitHub Secrets
-2. Drop the workflow file into `.github/workflows/claude.yml`
-3. That's it — `@claude` in any comment triggers a response
-
-This means the same agent that helps you write code on the cluster is also available to your collaborators directly in GitHub. Ask it to review a diff, explain a function, or suggest edits to a blog post draft — right in the PR thread.
-
----
-
 ## What's Next
 
 In the next session we'll cover:
