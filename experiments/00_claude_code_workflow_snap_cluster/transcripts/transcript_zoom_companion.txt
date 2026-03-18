@@ -1,0 +1,86 @@
+Image
+Meeting assets for Brando Miranda's Personal Meeting Room are ready!
+
+Meeting summary
+
+Quick recap
+
+Brando demonstrated his cloud computing workflow to William and Sri, showing how he uses multiple TMUX sessions and Cloud Code agents to manage experiments on Stanford's SNAP cluster. He explained his setup process, including SSH access to Emperor 1 server, configuration of Claude.md files, and handling of different file systems. The group discussed the benefits of using Cloud Code compared to manual coding, with Brando emphasizing the importance of maintaining cognitive engagement rather than relying solely on AI agents. They explored how Brando uses voice commands during commutes to prepare prompts for Cloud Code, and discussed the potential future of AI agents in research workflows. The session concluded with Brando and Sri continuing their collaboration after William had to leave due to battery issues.
+
+Next steps
+
+Brando: Follow up with Trenton from Anthropic to explore potential collaboration or access to Claude for the group.
+All participants: Review and set up claude.md files in their project folders, ensuring server-specific and project-specific instructions are included and up to date, especially regarding SIM linking, DFS, LFS, and Snap cluster setup.
+Sri: Investigate the use of Git work trees for running multiple Cloud Code agents in the same folder without interference, and update the group if a viable solution is found.
+Brando: Check and, if necessary, update the claude.md files across servers to ensure they include correct and current information about Snap cluster setup, SIM linking, and server-specific configurations.
+All participants: Help "spam the VSO" (presumably a reference to contacting or requesting resources from the VSO/club admin) to register for or request more Claude/Cloud Code credits for the group.
+Brando: Post a screenshot of Claude/Cloud Code usage by Thursday 7:55pm to demonstrate usage to the group.
+Brando: Show the group how to set up and run long-running Cloud Code jobs on Snap, including handling AFS/Kerberos token issues, in a future session.
+All participants: Read Brando's cloud.md and related files in his home directory for reference and to copy useful setup details for their own workflows.
+Brando: Create a first blog post for the new Lean EBM/Club website, summarizing this session.
+Brando: Clean up and remove stale information from claude.md files as needed, using Cloud Code assistance.
+Summary
+
+Cloud Code Workflow Demonstration
+
+Brando demonstrated his workflow for using Cloud Code to run experiments on remote servers, specifically showing how he SSHs into Emperor 1 to avoid disturbing other lab members while running GPU and API-based evaluations. He explained his approach of working directly on the server rather than locally to see real-time code edits, and mentioned plans to share a tutorial about this workflow. The meeting included some technical difficulties with audio, but Brando intended to continue demonstrating the process and later apply this workflow to the energy-based model project.
+
+Project Setup and Tools Discussion
+
+Brando, William, and Sri met to discuss their project setup and tools. Brando demonstrated his use of Claudet, a shortcut for running code with pseudo-permissions, and showed how to initialize and organize experiments in their EBM project repository. The team discussed using Sonnet instead of Opus for better performance, and Brando mentioned plans to record the session for creating a tutorial and blog post.
+
+Research Paper Workflow Setup
+
+Brando discussed his workflow for setting up repositories and creating LaTeX documents for research papers, emphasizing the importance of starting writing early and iterating ideas quickly. He explained his use of multiple terminal windows and Teamwork sessions to manage various agents and tasks, including running Cloud Code agents across TMUX sessions for continuity. The discussion also touched on the need to set up LaTeX paths and create a paper for EBM, though it was noted that one does not currently exist.
+
+Cursor Workspace Management Demonstration
+
+Brando demonstrated how to use Cursor to manage multiple projects and workspaces, showing William the process of setting up and saving a workspace with multiple repositories. Brando explained that he uses this system to run various code and AI agents for his work as a principal investigator and professor. During the demonstration, Brando encountered some performance issues with his computer, which he attributed to running too many processes locally.
+
+Concurrent Project Management Workflow
+
+Brando demonstrated his workflow for managing multiple concurrent projects using Tmux and cloud codes, explaining how he keeps different projects open to minimize context switching. When asked about potential conflicts between multiple cloud agents running simultaneously, Brando acknowledged this as a current challenge and mentioned he had found a solution using time-stamped prompts and JSON result dumping, though he noted this was still a work in progress. The discussion concluded with Brando showing the available Koyao servers and explaining how they could be used for running larger models overnight using multiple GPUs.
+
+Club Code and Server Setup
+
+Brando discussed registering for a club code and potentially reaching out to his contact at Anthropic for assistance, offering to mention Anthropic in their papers if they receive free access. He explained the server setup in Snap, advising team members to use specific servers for CPU tasks and providing guidance on accessing and using different file systems. Brando also mentioned an existing Cloud.md file that contains detailed information about his setup and instructions for projects to include in their cloud configuration files.
+
+SNAP Cluster Configuration Discussion
+
+Brando and William discussed the setup of the SNAP cluster and explored a file called claude.md in the LFS Emperor 1 project. Brando explained that the file contains information about API keys, a special GitHub token, and the SNAP cluster configuration, including details about LFS, DFS, and AFS setups. They checked if the file included information about SIM linking and directories, but it appeared to be missing some details. Brando mentioned that they could edit the file to include the necessary information or use the Veribench documentation to generate a proper setup.
+
+ClaudeMD Integration and System Setup
+
+Brando and William discussed setting up ClaudeMD in their folder and demonstrated the process of integrating it with their system. Brando proposed using a shared EFS master home to manage server-specific hardware details, such as GPU or CPU information. They also discussed moving the lean club website and cloning it for creating blog posts, while ensuring it is set up correctly in DFS with appropriate permissions.
+
+AI System Management Workflow Demo
+
+Brando demonstrated how to add folders and manage admin access in their system, confirming that William already had owner permissions. Brando explained his workflow for running AI experiments using Harbor framework and Cloud Code, including how he organizes scripts and prompts in numbered folders. The discussion included a brief mention of Brando's use of the Max plan for Claude AI, with a plan to share usage statistics later in the week.
+
+Claude Workflow and Server Setup
+
+Brando explained his workflow using Claude to generate README files and code prompts during his commute, currently running everything on AMPER1 server. He described a hierarchical structure of Claude code prompts, with one at the server root, another per repository, and specific scripts for experiments. Brando invited William and Srivatsava to review his setup, particularly encouraging them to examine his cloud files for potential improvements. The discussion ended with Brando mentioning an important issue regarding long-running jobs on Snap that needed attention.
+
+Stanford SNAP Cluster Kerberos Issue
+
+Brando explained an issue with Stanford's SNAP cluster where long team session runs can cause Kerberos token expiration, leading to Claude freezing. He demonstrated the solution, which involves creating a new TMUX session and running a reauth command to refresh the Kerberos tokens. Brando also showed how he uses Git shortcuts like "P" to push to repositories, and confirmed that the discussed configuration was being set up for William's access to the Stanford cluster.
+
+Cloud Code and AI Automation
+
+Brando demonstrated how to use Cloud Code and Claude to automate running experiments and pushing code to repositories, emphasizing the importance of maintaining cognitive engagement rather than delegating all tasks to AI. He explained his approach of breaking down tasks into step-by-step prompts and using reproducible .md files for better organization. The discussion also touched on the future of AI and its potential impact on work processes, with Brando expressing optimism about AI's development while acknowledging concerns about AI safety.
+
+AI can make mistakes. Review for accuracy.
+
+Please rate the accuracy of this summary.	feedback goodfeedback bad
+Edit summary
+Thank you,
+Zoom Support Team
+https://support.zoom.us
+LinkedIn	X	Instagram	Facebook	YouTube	Blog
+Zoom.com
+55 Almaden Blvd
+San Jose, CA 95113
++1.888.799.9666
+
+© 2026 Zoom Communications, Inc.
+

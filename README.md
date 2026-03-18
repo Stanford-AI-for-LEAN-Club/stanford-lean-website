@@ -1,3 +1,34 @@
+# Stanford Lean AI Club — Website
+
+Next.js website for the Stanford Lean AI Club, including the public blog.
+
+## Blog Post Workflow
+
+Blog posts are written through an **experiments → posts** pipeline:
+
+1. **Create an experiment folder** for the post under `experiments/NN_<slug>/`:
+   ```
+   experiments/
+     00_claude_code_workflow_snap_cluster/
+       README.md          # topic, status, key angles
+       drafts/            # v1.md, v2.md, final.md
+       prompts/           # LLM prompts used to draft/refine
+       figures/           # images, diagrams
+       scripts/           # any automation
+       transcripts/
+         transcript_raw.txt              # raw/informal — NOT tracked by git (.gitignore)
+         transcript_zoom_companion.txt   # Zoom auto-generated summary — tracked
+         transcript_summary_notes.txt    # curated technical notes for drafting — tracked
+   ```
+2. **Draft** in `drafts/` using transcripts, prompts, and figures as inputs.
+3. **Publish** by copying the final `.md` into `posts/` with proper YAML frontmatter (`title`, `date`, `description`).
+
+**Numbering:** experiments are prefixed `00_`, `01_`, `02_`, ... in creation order.
+
+**Privacy:** `transcript_raw.txt` files are gitignored (may contain informal/unedited content). Only `transcript_zoom_companion.txt` is committed.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

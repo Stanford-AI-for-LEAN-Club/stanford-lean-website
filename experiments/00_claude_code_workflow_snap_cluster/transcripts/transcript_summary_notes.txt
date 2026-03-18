@@ -1,0 +1,59 @@
+# Transcript Technical Summary Notes
+# Source: Zoom session — Brando + William + Sri + Eshaan + Matt Chen
+# Purpose: Key technical points for drafting blog post
+
+---
+
+## Claude Code Setup on SNAP
+
+- `clauded` = shortcut script for `claude --dangerously-skip-permissions` (works in non-interactive shells / tmux)
+- CLAUDE.md hierarchy: server root → per-repo → per-experiment scripts
+  - Contains: API keys, SNAP cluster config, LFS/DFS/AFS details, sim-linking instructions
+  - Should NOT hardcode server-specific hardware — detect at runtime via `nvidia-smi`, `nproc`, etc.
+- Use Sonnet over Opus for day-to-day work (better speed/cost tradeoff)
+
+## Multi-Agent / tmux Workflow
+
+- SSH into ampere1 (not local) to run GPU + API experiments without disturbing others
+- Multiple tmux sessions = multiple concurrent Claude Code agents
+- Each agent works in its own numbered experiment folder (`00_`, `01_`, ...)
+- Challenge: multiple agents in same repo can conflict — solution being explored: git worktrees (Sri action item)
+- Workaround used: timestamped prompts + JSON result dumping per agent
+
+## Prompt Engineering Workflow
+
+- Write prompts during commute via voice → refine → feed to Claude Code
+- Break tasks into step-by-step `.md` prompt files (reproducible, version-controlled)
+- Prompts live in `experiments/NN_<slug>/prompts/`
+
+## Cursor Workspace Management
+
+- Save multi-repo Cursor workspaces to minimize context switching across projects
+- Brando runs workspaces for: veribench, harbor, lean4ai, EBM project, website, etc.
+
+## SNAP Filesystem (LFS / DFS / AFS)
+
+- LFS (`/lfs/<hostname>/0/brando9`): fastest, local to server, used as $HOME
+- DFS (`/dfs/scratch0/brando9`): shared across all servers, use for repos + shared scripts
+- AFS (`/afs/cs.stanford.edu/u/brando9`): slow, backed up, good for configs
+- AutoFS: `cd /dfs/scratch0` to trigger mount if missing
+
+## Kerberos Token Issue (critical for long runs)
+
+- Problem: long tmux/Claude sessions cause Kerberos token expiration → Claude freezes
+- Fix: open a new tmux session, run `reauth` (or `kinit`) to refresh tokens
+- Important to document for anyone running overnight jobs on SNAP
+
+## Research / Writing Philosophy
+
+- LaTeX-from-day-one: start writing the paper immediately, iterate ideas in LaTeX
+- Maintain cognitive engagement — don't delegate everything to AI agents
+- Harbor framework used for structured experiment runs
+
+## Action Items from Session (for blog context)
+
+- Follow up with Trenton (Anthropic) re: Claude credits for the club
+- Git worktrees investigation (Sri)
+- Post Claude usage screenshot by Thursday
+- Future session: show long-running job setup + Kerberos handling
+- This blog post: summarize session for club website

@@ -46,6 +46,27 @@ Blog `[slug]/page.tsx` uses `generateStaticParams()` + `generateMetadata()` for 
 ### Client vs Server boundary
 Framer Motion animations and scroll listeners are isolated in `"use client"` components. Pages and the blog pipeline are Server Components by default.
 
+## Blog Post Workflow
+
+Posts are written through an **experiments → posts** pipeline. Do not skip this — raw transcripts are private.
+
+```
+experiments/NN_<slug>/
+  README.md                          # topic, status, key angles
+  drafts/                            # v1.md, v2.md, final.md
+  prompts/                           # LLM prompts used to draft/refine
+  figures/                           # images, diagrams
+  scripts/                           # automation
+  transcripts/
+    transcript_raw.txt               # gitignored — informal/unedited
+    transcript_zoom_companion.txt    # tracked — Zoom auto-generated summary
+    transcript_summary_notes.txt     # tracked — curated technical notes for drafting
+```
+
+When a post is ready, copy `drafts/final.md` → `posts/<slug>.md` with frontmatter (`title`, `date`, `description`).
+
+**Numbering:** `00_`, `01_`, `02_` ... in creation order under `experiments/`.
+
 ### Styling conventions
 - Stone color palette (`stone-50` … `stone-900`)
 - Merriweather serif for headings, Inter sans-serif for body (loaded via `next/font/google`)

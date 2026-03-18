@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# blog experiment transcripts — raw/informal versions are private
+experiments/**/transcripts/transcript_raw.txt
