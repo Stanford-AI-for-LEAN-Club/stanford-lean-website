@@ -248,3 +248,17 @@ In the next session we'll cover:
 - Harbor framework for structured experiment pipelines
 
 *This post was drafted from the live session transcript using Claude Code. The workflow eats its own cooking.*
+
+---
+
+## Citation
+
+```bibtex
+@misc{miranda2026claudecode,
+  author={Brando Miranda and William Peng and Srivatsava and Eshaan and Matt Chen},
+  title={Running {Claude Code} on {Stanford}'s {SNAP} Cluster: A Real Research Workflow},
+  year={2026},
+  howpublished={Stanford Lean {AI} Club Blog},
+  url={https://stanfordleanai.org/blog/claude-code-workflow-snap-cluster},
+}
+```

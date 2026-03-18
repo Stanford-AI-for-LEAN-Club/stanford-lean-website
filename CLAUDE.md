@@ -65,6 +65,8 @@ experiments/NN_<slug>/
 
 Steps: draft → PR review → copy `drafts/final.md` → `posts/<slug>.md` with frontmatter (`title`, `date`, `description`) → Twitter post (required) → YouTube link (optional, if session was recorded).
 
+Every post must end with a BibTeX citation block listing all authors (full names). Key format: `firstauthorYYYYslug`. Use `howpublished={Stanford Lean {AI} Club Blog}`.
+
 **When drafting:** always read all 3 transcripts — `transcript_raw.txt`, `transcript_zoom_companion.txt`, and `transcript_summary_notes.txt`. The raw transcript contains technical details (exact commands, live problems encountered) that the summary will miss.
 
 **Numbering:** `00_`, `01_`, `02_` ... in creation order under `experiments/`.

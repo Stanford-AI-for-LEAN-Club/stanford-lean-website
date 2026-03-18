@@ -22,7 +22,17 @@ Blog posts are written through an **experiments → posts** pipeline:
    ```
 2. **Draft** in `drafts/` using **all 3 transcripts** as inputs: raw, zoom companion, and summary notes. Do not draft from summary notes alone — the raw and zoom transcripts contain details that don't make it into the summary.
 3. **Review** via PR — assign relevant club members to approve before publishing.
-4. **Publish** by copying the final `.md` into `posts/` with proper YAML frontmatter (`title`, `date`, `description`).
+4. **Add citation** at the end of every post in BibTeX format:
+   ```bibtex
+   @misc{firstauthorYYYYslug,
+     author={Full Name and Full Name and ...},
+     title={Post Title},
+     year={YYYY},
+     howpublished={Stanford Lean {AI} Club Blog},
+     url={https://stanfordleanai.org/blog/<slug>},
+   }
+   ```
+5. **Publish** by copying the final `.md` into `posts/` with proper YAML frontmatter (`title`, `date`, `description`).
 5. **Promote** once the post is live:
    - **Twitter (required):** post a thread or short announcement linking to the blog post — [@StanfordLeanAI](https://x.com/StanfordLeanAI).
    - **YouTube (optional):** if the session was recorded as a video, upload it and link it from the blog post.
