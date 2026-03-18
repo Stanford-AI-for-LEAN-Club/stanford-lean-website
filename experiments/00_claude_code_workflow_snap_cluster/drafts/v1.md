@@ -199,6 +199,11 @@ on:
 jobs:
   claude:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write      # required by claude-code-action
+      contents: read
+      issues: write
+      pull-requests: write
     steps:
       - uses: anthropics/claude-code-action@v1
         with:
