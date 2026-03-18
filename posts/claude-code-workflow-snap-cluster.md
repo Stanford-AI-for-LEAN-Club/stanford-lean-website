@@ -259,6 +259,6 @@ In the next session we'll cover:
   title={Running {Claude Code} on {Stanford}'s {SNAP} Cluster: A Real Research Workflow},
   year={2026},
   howpublished={Stanford Lean {AI} Club Blog},
-  url={https://stanfordleanai.org/blog/claude-code-workflow-snap-cluster},
+  url={TODO: add final URL once live},
 }
 ```

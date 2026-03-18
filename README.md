@@ -29,7 +29,7 @@ Blog posts are written through an **experiments → posts** pipeline:
      title={Post Title},
      year={YYYY},
      howpublished={Stanford Lean {AI} Club Blog},
-     url={https://stanfordleanai.org/blog/<slug>},
+     url={TODO: add final URL once live},
    }
    ```
 5. **Publish** by copying the final `.md` into `posts/` with proper YAML frontmatter (`title`, `date`, `description`).
