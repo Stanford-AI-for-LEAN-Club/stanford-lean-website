@@ -20,7 +20,7 @@ Blog posts are written through an **experiments → posts** pipeline:
          transcript_zoom_companion.txt   # Zoom auto-generated summary — tracked
          transcript_summary_notes.txt    # curated technical notes for drafting — tracked
    ```
-2. **Draft** in `drafts/` using transcripts, prompts, and figures as inputs.
+2. **Draft** in `drafts/` using **all 3 transcripts** as inputs: raw, zoom companion, and summary notes. Do not draft from summary notes alone — the raw and zoom transcripts contain details that don't make it into the summary.
 3. **Review** via PR — assign relevant club members to approve before publishing.
 4. **Publish** by copying the final `.md` into `posts/` with proper YAML frontmatter (`title`, `date`, `description`).
 5. **Promote** once the post is live:

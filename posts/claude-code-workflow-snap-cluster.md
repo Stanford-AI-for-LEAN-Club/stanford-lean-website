@@ -124,16 +124,36 @@ This matters more than it sounds. Context-switching overhead is real. Every time
 
 ## The Kerberos Problem (and Fix)
 
-If you run long jobs on SNAP, you will hit this. Stanford uses Kerberos for AFS authentication. Tokens expire after ~10 hours. When they expire mid-run, Claude Code freezes waiting on filesystem operations that silently fail.
+If you run long jobs on SNAP, you will hit this. Stanford uses Kerberos + AFS authentication. Tokens expire after ~10 hours. When they expire mid-run, Claude Code freezes waiting on filesystem operations that silently fail — no error, just a hung session.
 
-**The fix:**
+**The right fix: use `krbtmux` instead of plain `tmux`.**
+
+From the [SNAP long-jobs docs](https://ilwiki.stanford.edu/doku.php?id=hints:long-jobs):
 
 ```bash
-# In a new tmux pane:
-reauth      # or: kinit brando9@CS.STANFORD.EDU
+# 1. Start your session with krbtmux (Kerberos-aware tmux wrapper)
+/afs/cs/software/bin/krbtmux
+
+# 2. Inside the session, run reauth — this daemon keeps renewing
+#    your Kerberos tickets in the background indefinitely
+/afs/cs/software/bin/reauth
+
+# 3. Now start your Claude Code agents / experiments as normal
+clauded
 ```
 
-Run this before a long overnight job. Add a reminder to your experiment README. We'll cover automating this in a future session.
+When you detach and re-attach later, use regular `tmux attach` — `krbtmux` is only needed at session creation.
+
+If you already have a plain tmux session that's losing tokens, the emergency fix is:
+
+```bash
+# In any pane in the session:
+/afs/cs/software/bin/reauth
+```
+
+**Why this happens:** When you log out, your Kerberos ticket expires. Plain `tmux` keeps the session alive but does nothing to renew the ticket. `krbtmux` is a wrapper that copies your current tickets into the session and `reauth` is a Perl daemon that keeps renewing them. Without this, long Claude Code runs on SNAP will silently freeze overnight.
+
+Add `krbtmux` + `reauth` to your experiment README as a checklist item before any long run.
 
 ---
 
