@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, User, ArrowRight, CheckCircle2, Globe, GraduationCap, Twitter } from "lucide-react";
+import { Github, Linkedin, User, CheckCircle2, Globe, GraduationCap, Twitter } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
@@ -52,8 +52,6 @@ const leadership: TeamMember[] = [
   {
     name: "Holger Molin",
     role: "Infrastructure Lead",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
   },
   {
     name: "Henry Bosch",
@@ -64,14 +62,10 @@ const leadership: TeamMember[] = [
   {
     name: "Jianfeng Xue",
     role: "Media",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
   },
   {
     name: "Matt Chen",
     role: "Media",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
   },
   {
     name: "Don Poindexter",
@@ -228,7 +222,7 @@ export default function About() {
           <div className="relative p-10 md:p-16 text-center space-y-8">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-50">Join the Community</h2>
             <p className="text-stone-300 max-w-2xl mx-auto text-lg leading-relaxed">
-              We welcome students from all backgrounds. Whether you're a math theorist, an AI researcher, or just curious, there's a place for you here.
+              We welcome students from all backgrounds. Whether you&apos;re a math theorist, an AI researcher, or just curious, there&apos;s a place for you here.
             </p>
             <div className="pt-4">
               <Link href="mailto:contact@stanfordailean.com">

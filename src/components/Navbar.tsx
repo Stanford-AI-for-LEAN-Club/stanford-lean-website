@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +15,6 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [hash, setHash] = useState("");
 
