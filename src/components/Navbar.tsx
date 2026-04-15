@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
+  { name: "Team", path: "/about#team" },
   { name: "Blog", path: "/blog" },
 ];
 
@@ -16,13 +17,20 @@ export default function Navbar() {
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hash, setHash] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    const handleHash = () => setHash(window.location.hash);
+    handleHash();
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("hashchange", handleHash);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", handleHash);
+    };
   }, []);
 
   return (
@@ -42,7 +50,9 @@ export default function Navbar() {
       </Link>
       <div className="flex gap-6">
         {navItems.map((item) => {
-          const isActive = pathname === item.path;
+          const isActive = item.path.includes("#")
+            ? pathname + hash === item.path
+            : pathname === item.path && !hash;
           return (
             <Link
               key={item.path}

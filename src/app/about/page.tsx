@@ -45,19 +45,20 @@ const leadership: TeamMember[] = [
   },
   {
     name: "William Peng",
-    role: "Compute Lead",
+    role: "Infrastructure Lead",
     image: "/team/William.jpg",
     linkedin: "https://www.linkedin.com/in/williamgpeng/",
   },
   {
     name: "Holger Molin",
-    role: "Compute Lead",
+    role: "Infrastructure Lead",
     github: "https://github.com",
     linkedin: "https://linkedin.com",
   },
   {
     name: "Henry Bosch",
     role: "Leadership",
+    image: "/team/Henry.png",
     website: "https://henrybosch.github.io/"
   },
   {
@@ -173,7 +174,7 @@ export default function About() {
               About Us
             </h1>
             <p className="text-lg text-stone-600 leading-relaxed">
-              The Stanford AI for Lean club is a student-run organization focused on the intersection of artificial intelligence and formal theorem proving. 
+              The Stanford AI for Lean club was founded by Brando Miranda and is a student-run organization focused on the intersection of artificial intelligence and formal theorem proving.
             </p>
             <p className="text-lg text-stone-600 leading-relaxed">
               We believe that formal verification is the future of mathematics and software engineering, and that AI will play a crucial role in making it accessible.
@@ -201,7 +202,7 @@ export default function About() {
         </div>
 
         {/* Leadership Section */}
-        <motion.div variants={item} className="space-y-12">
+        <motion.div id="team" variants={item} className="space-y-12 scroll-mt-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-stone-200 pb-8">
             <div className="space-y-2">
               <h2 className="text-4xl font-serif font-bold text-stone-900">Team</h2>
