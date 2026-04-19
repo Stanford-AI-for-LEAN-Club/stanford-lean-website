@@ -55,9 +55,11 @@ const leadership: TeamMember[] = [
   },
   {
     name: "Henry Bosch",
-    role: "Leadership",
+    role: "Math Lead",
     image: "/team/Henry.png",
-    website: "https://henrybosch.github.io/"
+    website: "https://web.stanford.edu/~hbosch/",
+    linkedin: "https://www.linkedin.com/in/henrybosch0/",
+    github: "https://github.com/henrybosch",
   },
   {
     name: "Jianfeng Xue",
