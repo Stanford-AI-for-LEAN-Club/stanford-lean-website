@@ -2,6 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## References for initializing / evolving this file
+
+Before making structural changes to this file (or `AGENTS.md`), read:
+<https://github.com/brando90/agents-config>
+
+That repo documents a three-layer architecture for agent config (entry points → shared rules/routing → domain docs) and is the recommended reference for how CLAUDE.md / AGENTS.md should be organized as the codebase grows. Prefer linking into new rule files there over letting this file balloon past a single page.
+
 ## Commands
 
 ```bash
