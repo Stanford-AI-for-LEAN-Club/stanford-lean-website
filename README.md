@@ -47,47 +47,43 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Deployment (aiforlean.org)
 
-The public site at **https://aiforlean.org** is hosted on **Vercel**. Every push to `main` is supposed to trigger a production deploy via the GitHub ↔ Vercel integration. If that integration is disconnected or the project is paused, pushes to `main` will silently stop appearing on the live site (symptom: `curl -sI https://aiforlean.org/` shows a very large `age:` header, meaning the cached response is days/weeks old).
+The public site at **https://aiforlean.org** is built as a static Next.js export and deployed by **GitHub Pages** via the `.github/workflows/deploy.yml` workflow. Every push to `main` runs the workflow, which builds `out/` and publishes it. No third-party service is required — if you can push to `main`, the site will update.
 
 ### Verify a deploy landed
 
-After pushing to `main`, confirm the site updated:
-
 ```bash
-# 1. Check the live HTML actually contains your change
-curl -s https://aiforlean.org/about | grep -o "Founder & President"
+# Should print a date within the last few minutes of your push
+curl -sI https://aiforlean.org/ | grep -i last-modified
 
-# 2. Check how old the Vercel response is — should be seconds/minutes, not days
-curl -sI https://aiforlean.org/ | grep -iE "^age:|x-vercel-"
+# Should print the string if the change is live
+curl -s https://aiforlean.org/about/ | grep -o "Founder & President"
 ```
 
-If `age:` is larger than a few hundred seconds and your change is missing, the deployment did not rebuild. **Do not rely on "it's on main" — always verify against the live URL.**
+You can also watch the run directly: **Actions** tab → **Deploy to GitHub Pages** → most recent run.
 
-### If the site is stale
+### If a deploy fails or the site is stale
 
-In order of effort:
+1. **Check the Actions run:** red ❌ on the latest workflow means the build failed — open the log, fix the error, push again.
+2. **Manually re-run:** GitHub → **Actions → Deploy to GitHub Pages → Run workflow** (the `workflow_dispatch` trigger is enabled).
+3. **Check Pages is enabled:** repo **Settings → Pages** → Source must be **GitHub Actions** (not "Deploy from a branch").
+4. **Custom domain:** `Settings → Pages → Custom domain` should say `aiforlean.org` with a green check. The `public/CNAME` file must contain exactly `aiforlean.org` — GitHub reads it on every deploy.
 
-1. **Manual redeploy (fastest):** in the Vercel dashboard → project → **Deployments** → latest commit on `main` → **⋯ → Redeploy**. Untick "Use existing Build Cache" if a config changed.
-2. **Vercel CLI (from a local checkout, requires `vercel login`):**
-   ```bash
-   npm i -g vercel
-   vercel link          # one-time, pick the existing project
-   vercel --prod        # build and promote to production
-   ```
-3. **Fix the GitHub integration (root cause):** Vercel dashboard → project → **Settings → Git** → confirm the repo is connected and the production branch is `main`. If not, reconnect. Check **Settings → Deployment Protection** and any **Spending / Usage** limits that can pause auto-deploys on the Hobby plan.
-4. **Check the webhook is firing:** GitHub repo → **Settings → Webhooks** → the Vercel webhook should show recent `200` deliveries. Red/failed deliveries point to an integration that needs reconnecting.
+### One-time setup (required after making the repo public)
 
-### Making this harder to break
-
-- Keep the Vercel project owned by a team/club account, not a single student — personal accounts get disconnected when people graduate.
-- After any change to Vercel project settings (domain, env var, git branch), push a trivial commit and verify with the `curl` checks above.
-- If multiple people might deploy, add Vercel CLI auth to a shared password manager so anyone can run `vercel --prod` as a fallback.
+1. **Enable Pages:** repo **Settings → Pages → Source = GitHub Actions**.
+2. **Point DNS at GitHub** (done at the domain registrar, not on GitHub):
+   - For apex `aiforlean.org`, add four A records:
+     `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - For `www.aiforlean.org` (optional), add a CNAME record pointing to `<org>.github.io`.
+   - Remove the Vercel DNS records (and the custom domain in the Vercel project) so the domain stops resolving to Vercel.
+3. **Enable HTTPS** in **Settings → Pages** once DNS propagates (a few minutes to an hour).
+4. **Push any commit** to trigger the first deploy.
 
 ### Local development
 
 ```bash
 npm install
-npm run dev   # http://localhost:3000
-npm run build # production build (matches what Vercel runs)
+npm run dev    # http://localhost:3000 (hot reload)
+npm run build  # produces ./out — same artifact Pages serves
 npm run lint
 ```
