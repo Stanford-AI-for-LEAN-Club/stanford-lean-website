@@ -251,6 +251,17 @@ In the next session we'll cover:
 
 ---
 
+## TL;DR
+
+- SSH into SNAP (prefer `ampere1`/`ampere8` loaners over the shared `skampere*` boxes) and open the project in Cursor over remote SSH so agent edits show up live.
+- Alias `clauded="claude --dangerously-skip-permissions"` and run it inside `tmux` (or `krbtmux`/`reauth`) so agents survive disconnects and Kerberos token expiry.
+- Use `claude-sonnet-4.6` for day-to-day work; reserve larger models for hard debugging.
+- Know your filesystems: AFS for small/home, DFS for project data, LFS for large scratch — don't let agents write logs to the wrong one.
+- Follow the `experiments/NN_<slug>/` structure (README, drafts, prompts, figures, transcripts) so sessions turn cleanly into blog posts.
+- `@claude` works in PRs/issues via `anthropics/claude-code-action@v1` — requires `id-token: write` permission and `ANTHROPIC_API_KEY` in secrets.
+
+---
+
 ## Citation
 
 ```bibtex
