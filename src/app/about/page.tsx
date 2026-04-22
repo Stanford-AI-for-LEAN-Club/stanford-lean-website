@@ -26,6 +26,7 @@ const leadership: TeamMember[] = [
     website: "https://brando90.github.io/brandomiranda/",
     linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
     twitter: "https://x.com/BrandoHablando",
+    github: "https://github.com/brando90",
   },
   {
     name: "Shurui Liu",
@@ -42,8 +43,10 @@ const leadership: TeamMember[] = [
     website: "https://sites.google.com/view/fredraj/"
   },
   {
-    name: "Sophia",
+    name: "Sophia Han",
     role: "External Relations & Financial Officer",
+    image: asset("/team/Sophia.jpg"),
+    linkedin: "https://www.linkedin.com/in/sophia-s-han-746135159/",
   },
   {
     name: "William Peng",
@@ -54,6 +57,8 @@ const leadership: TeamMember[] = [
   {
     name: "Holger Molin",
     role: "Infrastructure Lead",
+    image: asset("/team/Holger.jpg"),
+    linkedin: "https://www.linkedin.com/in/holger-molin-911201255/",
   },
   {
     name: "Henry Bosch",
@@ -66,10 +71,14 @@ const leadership: TeamMember[] = [
   {
     name: "Jianfeng Xue",
     role: "Media",
+    image: asset("/team/Jianfeng.jpg"),
+    linkedin: "https://www.linkedin.com/in/jxue7878/",
   },
   {
     name: "Matt Chen",
     role: "Media",
+    image: asset("/team/Matt.jpg"),
+    linkedin: "https://www.linkedin.com/in/matt-chen-ym/",
   },
   {
     name: "Don Poindexter",
