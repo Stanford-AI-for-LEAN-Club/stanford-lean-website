@@ -5,6 +5,7 @@ import { Github, Linkedin, User, CheckCircle2, Globe, GraduationCap, Twitter } f
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { asset } from "@/lib/asset";
 
 interface TeamMember {
   name: string;
@@ -20,7 +21,7 @@ interface TeamMember {
 const founder: TeamMember = {
   name: "Brando Miranda",
   role: "Founder & President",
-  image: "/team/Brando.png",
+  image: asset("/team/Brando.png"),
   website: "https://brando90.github.io/brandomiranda/",
   linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
 };
@@ -29,14 +30,14 @@ const leadership: TeamMember[] = [
   {
     name: "Brando Miranda",
     role: "Founder & President",
-    image: "/team/Brando.png",
+    image: asset("/team/Brando.png"),
     website: "https://brando90.github.io/brandomiranda/",
     linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
   },
   {
     name: "Shurui Liu",
     role: "Vice President",
-    image: "/team/Shurui.jpg",
+    image: asset("/team/Shurui.jpg"),
     website: "https://shurui.people.stanford.edu/",
     github: "https://github.com/srliu3264",
     linkedin: "https://www.linkedin.com/in/shurui-liu-5161042a3/"
@@ -44,7 +45,7 @@ const leadership: TeamMember[] = [
   {
     name: "Fred Rajasekaran",
     role: "Financial Officer",
-    image: "/team/Fred.jpg",
+    image: asset("/team/Fred.jpg"),
     website: "https://sites.google.com/view/fredraj/"
   },
   {
@@ -54,7 +55,7 @@ const leadership: TeamMember[] = [
   {
     name: "William Peng",
     role: "Infrastructure Lead",
-    image: "/team/William.jpg",
+    image: asset("/team/William.jpg"),
     linkedin: "https://www.linkedin.com/in/williamgpeng/",
   },
   {
@@ -64,7 +65,7 @@ const leadership: TeamMember[] = [
   {
     name: "Henry Bosch",
     role: "Math Lead",
-    image: "/team/Henry.png",
+    image: asset("/team/Henry.png"),
     website: "https://web.stanford.edu/~hbosch/",
     linkedin: "https://www.linkedin.com/in/henrybosch0/",
     github: "https://github.com/henrybosch",
@@ -80,7 +81,7 @@ const leadership: TeamMember[] = [
   {
     name: "Don Poindexter",
     role: "Leadership",
-    image: "/team/Don_Poindexter.jpg",
+    image: asset("/team/Don_Poindexter.jpg"),
     github: "https://github.com/patternscientist",
   },
 ];

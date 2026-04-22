@@ -45,18 +45,22 @@ Blog posts are written through an **experiments → posts** pipeline:
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). See the **Deployment** section below for how production pushes reach https://aiforlean.org.
 
-## Deployment (ailean.org)
+## Deployment
 
-The public site at **https://ailean.org** is built as a static Next.js export and deployed by **GitHub Pages** via the `.github/workflows/deploy.yml` workflow. Every push to `main` runs the workflow, which builds `out/` and publishes it. No third-party service is required — if you can push to `main`, the site will update.
+The public site is built as a static Next.js export and deployed by **GitHub Pages** via the `.github/workflows/deploy.yml` workflow. Every push to `main` runs the workflow, which builds `out/` and publishes it. No third-party service is required — if you can push to `main`, the site will update.
+
+**Current URL:** https://stanford-ai-for-lean-club.github.io/stanford-lean-website/
+
+A custom apex domain (e.g. `ailean.org`) is tracked in #3 — once DNS is repointed to GitHub Pages, drop `basePath`/`assetPrefix` from `next.config.ts` and add a `public/CNAME` file with the chosen domain.
 
 ### Verify a deploy landed
 
 ```bash
 # Should print a date within the last few minutes of your push
-curl -sI https://ailean.org/ | grep -i last-modified
+curl -sI https://stanford-ai-for-lean-club.github.io/stanford-lean-website/ | grep -i last-modified
 
 # Should print the string if the change is live
-curl -s https://ailean.org/about/ | grep -o "Founder & President"
+curl -s https://stanford-ai-for-lean-club.github.io/stanford-lean-website/about/ | grep -o "Founder & President"
 ```
 
 You can also watch the run directly: **Actions** tab → **Deploy to GitHub Pages** → most recent run.
