@@ -17,12 +17,20 @@ interface TeamMember {
   twitter?: string;
 }
 
+const founder: TeamMember = {
+  name: "Brando Miranda",
+  role: "Founder & President",
+  image: "/team/Brando.png",
+  website: "https://brando90.github.io/brandomiranda/",
+  linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
+};
+
 const leadership: TeamMember[] = [
   {
     name: "Brando Miranda",
     role: "Founder & President",
     image: "/team/Brando.png",
-    github: "https://brando90.github.io/brandomiranda/",
+    website: "https://brando90.github.io/brandomiranda/",
     linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
   },
   {
@@ -196,6 +204,54 @@ export default function About() {
             </ul>
           </motion.div>
         </div>
+
+        {/* Founder Spotlight */}
+        <motion.div id="founder" variants={item} className="space-y-8 scroll-mt-24">
+          <div className="space-y-2 border-b border-stone-200 pb-8">
+            <h2 className="text-4xl font-serif font-bold text-stone-900">Founder</h2>
+            <p className="text-stone-500 max-w-md">
+              The Stanford AI for Lean club was founded by Brando Miranda.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
+            <div className="relative aspect-square w-full max-w-[280px] bg-stone-200 rounded-2xl overflow-hidden shadow-sm">
+              <Image
+                src={founder.image!}
+                alt={founder.name}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="space-y-4 pt-2">
+              <div className="space-y-1">
+                <h3 className="text-3xl font-serif font-bold text-stone-900">{founder.name}</h3>
+                <p className="text-stone-600 font-medium text-lg">{founder.role}</p>
+              </div>
+              <p className="text-stone-600 leading-relaxed max-w-2xl">
+                Brando founded the Stanford AI for Lean club to bring together students and researchers working at the intersection of artificial intelligence and formal theorem proving.
+              </p>
+              <div className="flex items-center gap-4 pt-2">
+                {founder.linkedin && (
+                  <Link href={founder.linkedin} target="_blank" className="text-stone-400 hover:text-[#0077b5] transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </Link>
+                )}
+                {founder.website && (
+                  <Link href={founder.website} target="_blank" className="text-stone-400 hover:text-stone-900 transition-colors">
+                    <Globe className="w-5 h-5" />
+                  </Link>
+                )}
+                {founder.github && (
+                  <Link href={founder.github} target="_blank" className="text-stone-400 hover:text-stone-900 transition-colors">
+                    <Github className="w-5 h-5" />
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Leadership Section */}
         <motion.div id="team" variants={item} className="space-y-12 scroll-mt-24">
