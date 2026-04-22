@@ -2,6 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## References for initializing / evolving this file
+
+Before making structural changes to this file (or `AGENTS.md`), read:
+<https://github.com/brando90/agents-config>
+
+That repo documents a three-layer architecture for agent config (entry points → shared rules/routing → domain docs) and is the recommended reference for how CLAUDE.md / AGENTS.md should be organized as the codebase grows. Prefer linking into new rule files there over letting this file balloon past a single page.
+
 ## Commands
 
 ```bash
@@ -65,7 +72,10 @@ experiments/NN_<slug>/
 
 Steps: draft → PR review → copy `drafts/final.md` → `posts/<slug>.md` with frontmatter (`title`, `date`, `description`) → Twitter post (required) → YouTube link (optional, if session was recorded).
 
-Every post must end with a BibTeX citation block listing all authors (full names). Key format: `firstauthorYYYYslug`. Use `howpublished={Stanford Lean {AI} Club Blog}`.
+Every post must end with a **TL;DR** section followed by a BibTeX citation block.
+
+- **TL;DR:** 3–6 bullet points that summarize the concrete takeaways (commands, tools, decisions) a reader should walk away with. Placed immediately before the citation block, under an `## TL;DR` heading.
+- **Citation:** BibTeX block listing all authors (full names). Key format: `firstauthorYYYYslug`. Use `howpublished={Stanford Lean {AI} Club Blog}`. Fill in the real `url={...}` once the post is live (replace any `TODO` placeholder).
 
 **When drafting:** always read all 3 transcripts — `transcript_raw.txt`, `transcript_zoom_companion.txt`, and `transcript_summary_notes.txt`. The raw transcript contains technical details (exact commands, live problems encountered) that the summary will miss.
 
