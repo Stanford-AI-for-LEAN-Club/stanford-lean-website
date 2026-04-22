@@ -43,39 +43,51 @@ Blog posts are written through an **experiments → posts** pipeline:
 
 ---
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). See the **Deployment** section below for how production pushes reach https://aiforlean.org.
 
-## Getting Started
+## Deployment (aiforlean.org)
 
-First, run the development server:
+The public site at **https://aiforlean.org** is hosted on **Vercel**. Every push to `main` is supposed to trigger a production deploy via the GitHub ↔ Vercel integration. If that integration is disconnected or the project is paused, pushes to `main` will silently stop appearing on the live site (symptom: `curl -sI https://aiforlean.org/` shows a very large `age:` header, meaning the cached response is days/weeks old).
+
+### Verify a deploy landed
+
+After pushing to `main`, confirm the site updated:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 1. Check the live HTML actually contains your change
+curl -s https://aiforlean.org/about | grep -o "Founder & President"
+
+# 2. Check how old the Vercel response is — should be seconds/minutes, not days
+curl -sI https://aiforlean.org/ | grep -iE "^age:|x-vercel-"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If `age:` is larger than a few hundred seconds and your change is missing, the deployment did not rebuild. **Do not rely on "it's on main" — always verify against the live URL.**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### If the site is stale
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+In order of effort:
 
-## Learn More
+1. **Manual redeploy (fastest):** in the Vercel dashboard → project → **Deployments** → latest commit on `main` → **⋯ → Redeploy**. Untick "Use existing Build Cache" if a config changed.
+2. **Vercel CLI (from a local checkout, requires `vercel login`):**
+   ```bash
+   npm i -g vercel
+   vercel link          # one-time, pick the existing project
+   vercel --prod        # build and promote to production
+   ```
+3. **Fix the GitHub integration (root cause):** Vercel dashboard → project → **Settings → Git** → confirm the repo is connected and the production branch is `main`. If not, reconnect. Check **Settings → Deployment Protection** and any **Spending / Usage** limits that can pause auto-deploys on the Hobby plan.
+4. **Check the webhook is firing:** GitHub repo → **Settings → Webhooks** → the Vercel webhook should show recent `200` deliveries. Red/failed deliveries point to an integration that needs reconnecting.
 
-To learn more about Next.js, take a look at the following resources:
+### Making this harder to break
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Keep the Vercel project owned by a team/club account, not a single student — personal accounts get disconnected when people graduate.
+- After any change to Vercel project settings (domain, env var, git branch), push a trivial commit and verify with the `curl` checks above.
+- If multiple people might deploy, add Vercel CLI auth to a shared password manager so anyone can run `vercel --prod` as a fallback.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Local development
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install
+npm run dev   # http://localhost:3000
+npm run build # production build (matches what Vercel runs)
+npm run lint
+```
