@@ -45,18 +45,18 @@ Blog posts are written through an **experiments → posts** pipeline:
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). See the **Deployment** section below for how production pushes reach https://aiforlean.org.
 
-## Deployment (aiforlean.org)
+## Deployment (ailean.org)
 
-The public site at **https://aiforlean.org** is built as a static Next.js export and deployed by **GitHub Pages** via the `.github/workflows/deploy.yml` workflow. Every push to `main` runs the workflow, which builds `out/` and publishes it. No third-party service is required — if you can push to `main`, the site will update.
+The public site at **https://ailean.org** is built as a static Next.js export and deployed by **GitHub Pages** via the `.github/workflows/deploy.yml` workflow. Every push to `main` runs the workflow, which builds `out/` and publishes it. No third-party service is required — if you can push to `main`, the site will update.
 
 ### Verify a deploy landed
 
 ```bash
 # Should print a date within the last few minutes of your push
-curl -sI https://aiforlean.org/ | grep -i last-modified
+curl -sI https://ailean.org/ | grep -i last-modified
 
 # Should print the string if the change is live
-curl -s https://aiforlean.org/about/ | grep -o "Founder & President"
+curl -s https://ailean.org/about/ | grep -o "Founder & President"
 ```
 
 You can also watch the run directly: **Actions** tab → **Deploy to GitHub Pages** → most recent run.
@@ -66,16 +66,15 @@ You can also watch the run directly: **Actions** tab → **Deploy to GitHub Page
 1. **Check the Actions run:** red ❌ on the latest workflow means the build failed — open the log, fix the error, push again.
 2. **Manually re-run:** GitHub → **Actions → Deploy to GitHub Pages → Run workflow** (the `workflow_dispatch` trigger is enabled).
 3. **Check Pages is enabled:** repo **Settings → Pages** → Source must be **GitHub Actions** (not "Deploy from a branch").
-4. **Custom domain:** `Settings → Pages → Custom domain` should say `aiforlean.org` with a green check. The `public/CNAME` file must contain exactly `aiforlean.org` — GitHub reads it on every deploy.
+4. **Custom domain:** `Settings → Pages → Custom domain` should say `ailean.org` with a green check. The `public/CNAME` file must contain exactly `ailean.org` — GitHub reads it on every deploy and will overwrite the dashboard setting if they disagree.
 
 ### One-time setup (required after making the repo public)
 
 1. **Enable Pages:** repo **Settings → Pages → Source = GitHub Actions**.
 2. **Point DNS at GitHub** (done at the domain registrar, not on GitHub):
-   - For apex `aiforlean.org`, add four A records:
+   - For apex `ailean.org`, replace existing A records with these four:
      `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - For `www.aiforlean.org` (optional), add a CNAME record pointing to `<org>.github.io`.
-   - Remove the Vercel DNS records (and the custom domain in the Vercel project) so the domain stops resolving to Vercel.
+   - For `www.ailean.org` (optional), add a CNAME record pointing to `stanford-ai-for-lean-club.github.io`.
 3. **Enable HTTPS** in **Settings → Pages** once DNS propagates (a few minutes to an hour).
 4. **Push any commit** to trigger the first deploy.
 
