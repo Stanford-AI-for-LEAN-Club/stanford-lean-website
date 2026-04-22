@@ -25,6 +25,7 @@ const leadership: TeamMember[] = [
     image: asset("/team/Brando.png"),
     website: "https://brando90.github.io/brandomiranda/",
     linkedin: "https://www.linkedin.com/in/brando-miranda-40821046/",
+    twitter: "https://x.com/BrandoHablando",
   },
   {
     name: "Shurui Liu",
